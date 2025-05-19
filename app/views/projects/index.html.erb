@@ -59,7 +59,47 @@
             </h2>
 
             <div class="projects-grid">
-                <%# TODO: Add mapping logic for project cards %>
+                <% @projects.each do |project| %>
+                    <a href="<%= project.link %>" class="project-card">
+                        <div class="project-image-container">
+                            <img
+                                src="<%= project.thumbnail.attached? ? url_for(project.thumbnail) : 'https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder' %>"
+                                alt="<%= project.name %>"
+                                class="project-image"
+                                style="object-fit: cover; width: 500px; height: 300px;"
+                            />
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title"><%= project.name %></h3>
+                            <p class="project-description"><%= project.thumbnail_desc %></p>
+                            <div class="tags-container">
+                                <% project.tags.each do |tag| %>
+                                    <span class="tag"><%= tag %></span>
+                                <% end %>
+                            </div>
+                            <div class="project-link">
+                                <span>
+                                    View Project
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        class="arrow-icon"
+                                    >
+                                        <path d="M5 12h14"></path>
+                                        <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                <% end %>
             </div>
         </div>
     </section>
