@@ -74,7 +74,7 @@
                             <p class="project-description"><%= project.thumbnail_desc %></p>
                             <div class="tags-container">
                                 <% project.tags.each do |tag| %>
-                                    <span class="tag"><%= tag %></span>
+                                    <span class="tag"><%= tag.name %></span>
                                 <% end %>
                             </div>
                             <div class="project-link">
