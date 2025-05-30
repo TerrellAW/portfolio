@@ -60,7 +60,7 @@
 
             <div class="projects-grid">
                 <% @projects.each do |project| %>
-                    <a href="<%= project.link %>" class="project-card">
+                    <a href="<%= project_path(project) %>" class="project-card">
                         <div class="project-image-container">
                             <img
                                 src="<%= project.thumbnail.attached? ? url_for(project.thumbnail) : 'https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder' %>"

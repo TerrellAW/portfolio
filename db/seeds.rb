@@ -11,7 +11,6 @@ mobile_tag = Tag.find_or_create_by!(name: 'Mobile')
 mood_hops = Project.find_or_create_by!(name: 'Mood Hops') do |project|
   project.thumbnail_desc = 'A Complex React Native Project - A simple mobile platformer game with levels based on emotions.'
   project.desc = 'Our team jumped at the opportunity to create a game for our Mobile App Development class\' final project. We demonstrated our skills with React Native by doing something no one has done before, creating a platformer game using the tools given to us by React Native. Tools used to render responsive web apps became a game engine where we brought our ideas to life. Mood Hops uses Firebase to handle user accounts and stores save data for level highscores to the device it\'s played on. With the technologies we are using it would be possible to expand online functionalities by instead saving highscores to the cloud and adding an online leaderboard between users.'
-  project.link = '/projects/1'  # Will be dynamically generated
   project.img_1_desc = 'Login'
   project.img_2_desc = 'Select a Level'
   project.img_3_desc = 'and Play!'
