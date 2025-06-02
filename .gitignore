@@ -32,3 +32,48 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# IDEs
+.idea/
+.zed/
+.vscode/
+.vs/
+
+# Kamal
+.kamal/
+
+# Ruby
+.ruby-lsp/
+
+# Database files (additional coverage)
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor backup files
+*~
+*.swp
+*.swo
+.#*
+
+# Coverage reports
+/coverage/
+
+# Node modules (if using any frontend tooling)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
