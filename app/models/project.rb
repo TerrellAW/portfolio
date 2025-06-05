@@ -12,4 +12,31 @@ class Project < ApplicationRecord
     has_one_attached :img_2 # Second image on page
     has_one_attached :img_3 # Third image on page
     has_and_belongs_to_many :tags # Tags for project cards
+
+    after_create :create_image_folders
+
+    private
+
+    # Create image directories for each page automatically
+    def create_image_folders
+        folder_path = Rails.root.join("public", "images", "projects", id.to_s)
+        FileUtils.mkdir_p(folder_path)
+    end
+
+  # File Path Variables
+  def thumbnail_path
+    "/images/projects/#{id}/thumbnail.png"
+  end
+
+  def img_1_path
+    "/images/projects/#{id}/img_1.gif"
+  end
+
+  def img_2_path
+    "/images/projects/#{id}/img_2.gif"
+  end
+
+  def img_3_path
+    "/images/projects/#{id}/img_3.gif"
+  end
 end
