@@ -7,6 +7,7 @@ class Project < ApplicationRecord
     validates :img_1_desc, presence: true # Text under first image
     validates :img_2_desc, presence: true # Text under second image
     validates :img_3_desc, presence: true # Text under third image
+    validates :color, format: { with: /\A#[0-9A-Fa-f]{6}\z/, message: "must be a valid hex color (e.g., #22d3ee)" }, allow_blank: true # Project color scheme
     has_and_belongs_to_many :tags # Tags for project cards
 
     after_create :create_image_folders
@@ -46,7 +47,12 @@ class Project < ApplicationRecord
       else
         "https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder"
       end
-    end
+  end
+
+  # Get project color with fallback to default
+  def project_color
+      color.present? ? color : "#ffffff"
+  end
 
     private
 

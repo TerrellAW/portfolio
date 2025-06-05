@@ -1,4 +1,4 @@
-<main class="min-h-screen">
+<main class="min-h-screen" style="--project-color: <%= @project.project_color %>;">
     <%# Navigation %>
     <div class="container">
         <a href="/" class="back-link">
@@ -23,7 +23,7 @@
     <%# Header %>
     <header class="project-header">
         <div class="container">
-            <h1 class="project-header-title">
+            <h1 class="project-header-title" style="color: var(--project-color);">
                 <%= @project.name %>
             </h1>
             <p class="project-header-subtitle">
@@ -43,7 +43,7 @@
                              alt="<%= @project.img_1_desc %>"
                              class="showcase-image">
                     </div>
-                    <h3 class="showcase-title">
+                    <h3 class="showcase-title" style="color: var(--project-color);">
                         <%= @project.img_1_desc %>
                     </h3>
                 </div>
@@ -57,7 +57,7 @@
                              alt="<%= @project.img_2_desc %>"
                              class="showcase-image">
                     </div>
-                    <h3 class="showcase-title">
+                    <h3 class="showcase-title" style="color: var(--project-color);">
                         <%= @project.img_2_desc %>
                     </h3>
                 </div>
@@ -71,7 +71,7 @@
                              alt="<%= @project.img_3_desc %>"
                              class="showcase-image">
                     </div>
-                    <h3 class="showcase-title">
+                    <h3 class="showcase-title" style="color: var(--project-color);">
                         <%= @project.img_3_desc %>
                     </h3>
                 </div>

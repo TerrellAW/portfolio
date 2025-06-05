@@ -176,7 +176,7 @@ a {
 }
 
 .project-card:hover {
-    border-color: rgba(34, 211, 238, 0.5);
+    border-color: var(--project-color);
 }
 
 .project-image-container {
@@ -208,7 +208,7 @@ a {
 }
 
 .project-card:hover .project-title {
-    color: #22d3ee;
+    color: var(--project-color);
 }
 
 .project-description {

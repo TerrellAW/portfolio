@@ -60,7 +60,7 @@
 
             <div class="projects-grid">
                 <% @projects.each do |project| %>
-                    <a href="<%= project_path(project) %>" class="project-card">
+                    <a href="<%= project_path(project) %>" class="project-card" style="--project-color: <%= project.project_color %>;">
                         <div class="project-image-container">
                             <img
                                 src="<%= project.thumbnail_path %>"
