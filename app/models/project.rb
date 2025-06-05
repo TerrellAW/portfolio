@@ -7,13 +7,46 @@ class Project < ApplicationRecord
     validates :img_1_desc, presence: true # Text under first image
     validates :img_2_desc, presence: true # Text under second image
     validates :img_3_desc, presence: true # Text under third image
-    has_one_attached :thumbnail # Image for display on project card
-    has_one_attached :img_1 # First image on page
-    has_one_attached :img_2 # Second image on page
-    has_one_attached :img_3 # Third image on page
     has_and_belongs_to_many :tags # Tags for project cards
 
     after_create :create_image_folders
+
+  # Smart File Path Methods
+  def thumbnail_path
+    file_path = Rails.root.join("public", "images", "projects", id.to_s, "thumbnail.gif")
+      if File.exist?(file_path)
+        "/images/projects/#{id}/thumbnail.gif"
+      else
+        "https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder"
+      end
+    end
+
+  def img_1_path
+    file_path = Rails.root.join("public", "images", "projects", id.to_s, "img_1.gif")
+      if File.exist?(file_path)
+        "/images/projects/#{id}/img_1.gif"
+      else
+        "https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder"
+      end
+    end
+
+  def img_2_path
+    file_path = Rails.root.join("public", "images", "projects", id.to_s, "img_2.gif")
+      if File.exist?(file_path)
+        "/images/projects/#{id}/img_2.gif"
+      else
+        "https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder"
+      end
+    end
+
+  def img_3_path
+    file_path = Rails.root.join("public", "images", "projects", id.to_s, "img_3.gif")
+      if File.exist?(file_path)
+        "/images/projects/#{id}/img_3.gif"
+      else
+        "https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder"
+      end
+    end
 
     private
 
@@ -22,21 +55,4 @@ class Project < ApplicationRecord
         folder_path = Rails.root.join("public", "images", "projects", id.to_s)
         FileUtils.mkdir_p(folder_path)
     end
-
-  # File Path Variables
-  def thumbnail_path
-    "/images/projects/#{id}/thumbnail.png"
-  end
-
-  def img_1_path
-    "/images/projects/#{id}/img_1.gif"
-  end
-
-  def img_2_path
-    "/images/projects/#{id}/img_2.gif"
-  end
-
-  def img_3_path
-    "/images/projects/#{id}/img_3.gif"
-  end
 end

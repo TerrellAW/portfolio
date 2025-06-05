@@ -63,7 +63,7 @@
                     <a href="<%= project_path(project) %>" class="project-card">
                         <div class="project-image-container">
                             <img
-                                src="<%= project.thumbnail.attached? ? url_for(project.thumbnail) : 'https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder' %>"
+                                src="<%= project.thumbnail_path %>"
                                 alt="<%= project.name %>"
                                 class="project-image"
                                 style="object-fit: cover; width: 500px; height: 300px;"
