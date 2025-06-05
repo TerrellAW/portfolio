@@ -33,36 +33,43 @@
     </header>
 
     <%# Project Showcase %>
-    <section class="project-showcase">
+    <section class="project-showcase-section">
         <div class="container">
-            <div class="project-showcase">
-                <%# Image 1 %>
-                <div class="showcase-item">
-                    <%# TODO: Add alt text and additional styling %>
+            <%# Image 1 - Left aligned %>
+            <div class="showcase-item showcase-item-left">
+                <div class="showcase-card">
                     <div class="showcase-image-container">
-                        <%= @project.img_1 ? @project.img_1 : 'https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder' %>
+                        <img src="<%= @project.img_1 || 'https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder' %>" 
+                             alt="<%= @project.img_1_desc %>" 
+                             class="showcase-image">
                     </div>
                     <h3 class="showcase-title">
                         <%= @project.img_1_desc %>
                     </h3>
                 </div>
+            </div>
 
-                <%# Image 2 %>
-                <div class="showcase-item">
-                    <%# TODO: Add alt text and additional styling %>
+            <%# Image 2 - Right aligned %>
+            <div class="showcase-item showcase-item-right">
+                <div class="showcase-card">
                     <div class="showcase-image-container">
-                        <%= @project.img_2 ? @project.img_2 : 'https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder' %>
+                        <img src="<%= @project.img_2 || 'https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder' %>" 
+                             alt="<%= @project.img_2_desc %>" 
+                             class="showcase-image">
                     </div>
                     <h3 class="showcase-title">
                         <%= @project.img_2_desc %>
                     </h3>
                 </div>
+            </div>
 
-                <%# Image 3 %>
-                <div class="showcase-item">
-                    <%# TODO: Add alt text and additional styling %>
+            <%# Image 3 - Left aligned %>
+            <div class="showcase-item showcase-item-left">
+                <div class="showcase-card">
                     <div class="showcase-image-container">
-                        <%= @project.img_3 ? @project.img_3 : 'https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder' %>
+                        <img src="<%= @project.img_3 || 'https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder' %>" 
+                             alt="<%= @project.img_3_desc %>" 
+                             class="showcase-image">
                     </div>
                     <h3 class="showcase-title">
                         <%= @project.img_3_desc %>

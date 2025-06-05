@@ -341,31 +341,88 @@ a {
     margin-bottom: 32px;
 }
 
-.project-showcase {
-    max-width: 1000px;
-    margin: 0 auto;
+.project-showcase-section {
     padding: 48px 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-}
-
-@media (min-width: 768px) {
-    .project-showcase {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 .showcase-item {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.showcase-item-left {
+    justify-content: flex-start;
+}
+
+.showcase-item-right {
+    justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+    .showcase-item,
+    .showcase-item-left,
+    .showcase-item-right {
+        justify-content: center;
+    }
+}
+
+.showcase-card {
     background-color: rgba(31, 41, 55, 0.5);
     border: 1px solid #374151;
     border-radius: 12px;
     overflow: hidden;
     padding: 16px;
+    max-width: 400px;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.showcase-item-right .showcase-card {
+    transform: translateX(100px);
+    animation: slideInRight 0.8s ease-out forwards;
+}
+
+.showcase-item:nth-child(1) .showcase-card {
+    animation-delay: 0.2s;
+}
+
+.showcase-item:nth-child(2) .showcase-card {
+    animation-delay: 0.4s;
+}
+
+.showcase-item:nth-child(3) .showcase-card {
+    animation-delay: 0.6s;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .showcase-image-container {
     margin-bottom: 16px;
+}
+
+.showcase-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 .showcase-title {
