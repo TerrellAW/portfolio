@@ -5,6 +5,8 @@
 react_native_tag = Tag.find_or_create_by!(name: "React Native")
 game_development_tag = Tag.find_or_create_by!(name: "Game Development")
 mobile_tag = Tag.find_or_create_by!(name: "Mobile")
+ai_tag = Tag.find_or_create_by!(name: "AI")
+discord_tag = Tag.find_or_create_by!(name: "Discord API")
 
 # Create projects
 mood_hops = Project.find_or_create_by!(name: "Mood Hops") do |project|
@@ -28,5 +30,7 @@ discord_chatbot = Project.find_or_create_by!(name: "Discord Chatbot") do |projec
   project.img_3_desc = "Can integrate with MMO game APIs."
   project.color = "#FF4B33"
 end
+
+discord_chatbot.tags = [ ai_tag, discord_tag ] if discord_chatbot.tags.empty?
 
 puts "Seeded #{Project.count} projects and #{Tag.count} tags"
