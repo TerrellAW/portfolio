@@ -14,9 +14,9 @@ class Project < ApplicationRecord
 
   # Smart File Path Methods
   def thumbnail_path
-    file_path = Rails.root.join("public", "images", "projects", id.to_s, "thumbnail.gif")
+    file_path = Rails.root.join("public", "images", "projects", id.to_s, "thumbnail.png")
       if File.exist?(file_path)
-        "/images/projects/#{id}/thumbnail.gif"
+        "/images/projects/#{id}/thumbnail.png"
       else
         "https://placeholder.pics/svg/500x300/cccccc/ffffff/Placeholder"
       end
