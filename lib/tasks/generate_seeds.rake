@@ -3,6 +3,7 @@ namespace :db do
   task generate_seeds: :environment do
     puts "# Generated seeds from existing database records"
     puts "# Run this task with: rails db:generate_seeds"
+    puts "# Specify output with: rails db:generate_seeds > output/path/file.rb"
     puts ""
 
     # Generate tags
@@ -13,10 +14,9 @@ namespace :db do
     puts ""
 
     # Generate projects
-    puts "# Create projects"
     Project.all.each do |project|
       project_var = project.name.downcase.gsub(/[^a-z0-9]/, "_").gsub(/_+/, "_")
-
+      puts "# Create #{project.name}"
       puts "#{project_var} = Project.find_or_create_by!(name: \"#{project.name}\") do |project|"
       puts "  project.thumbnail_desc = \"#{project.thumbnail_desc.gsub('\\', '\\\\').gsub('"', '\\"')}\"" if project.thumbnail_desc
       puts "  project.desc = \"#{project.desc.gsub('\\', '\\\\').gsub('"', '\\"')}\"" if project.desc
