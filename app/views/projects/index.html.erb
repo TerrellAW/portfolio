@@ -60,44 +60,46 @@
 
             <div class="projects-grid">
                 <% @projects.each do |project| %>
-                    <a href="<%= project_path(project) %>" class="project-card" style="--project-color: <%= project.project_color %>;">
-                        <div class="project-image-container">
-                            <img
-                                src="<%= project.thumbnail_path %>"
-                                alt="<%= project.name %>"
-                                class="project-image"
-                            />
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title"><%= project.name %></h3>
-                            <p class="project-description"><%= project.thumbnail_desc %></p>
-                            <div class="tags-container">
-                                <% project.tags.each do |tag| %>
-                                    <span class="tag"><%= tag.name %></span>
-                                <% end %>
+                    <% if project.is_featured %>
+                        <a href="<%= project_path(project) %>" class="project-card" style="--project-color: <%= project.project_color %>;">
+                            <div class="project-image-container">
+                                <img
+                                    src="<%= project.thumbnail_path %>"
+                                    alt="<%= project.name %>"
+                                    class="project-image"
+                                />
                             </div>
-                            <div class="project-link">
-                                <span>
-                                    View Project
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        class="arrow-icon"
-                                    >
-                                        <path d="M5 12h14"></path>
-                                        <path d="M12 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
+                            <div class="project-content">
+                                <h3 class="project-title"><%= project.name %></h3>
+                                <p class="project-description"><%= project.thumbnail_desc %></p>
+                                <div class="tags-container">
+                                    <% project.tags.each do |tag| %>
+                                        <span class="tag"><%= tag.name %></span>
+                                    <% end %>
+                                </div>
+                                <div class="project-link">
+                                    <span>
+                                        View Project
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            class="arrow-icon"
+                                        >
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    <% end %>
                 <% end %>
             </div>
         </div>

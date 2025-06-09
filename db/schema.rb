@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_05_225109) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_09_200800) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_05_225109) do
     t.string "img_3_desc"
     t.string "github_link"
     t.string "color"
+    t.boolean "is_featured", default: false
   end
 
   create_table "projects_tags", id: false, force: :cascade do |t|
