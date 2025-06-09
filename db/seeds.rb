@@ -8,7 +8,7 @@ mobile_tag = Tag.find_or_create_by!(name: "Mobile")
 ai_tag = Tag.find_or_create_by!(name: "AI")
 discord_tag = Tag.find_or_create_by!(name: "Discord API")
 
-# Create projects
+# Create Mood Hops
 mood_hops = Project.find_or_create_by!(name: "Mood Hops") do |project|
   project.thumbnail_desc = "A Complex React Native Project - A simple mobile platformer game with levels based on emotions."
   project.desc = "Our team jumped at the opportunity to create a game for our Mobile App Development class' final project. We demonstrated our skills with React Native by doing something no one has done before, creating a platformer game using the tools given to us by React Native. Tools used to render responsive web apps became a game engine where we brought our ideas to life. Mood Hops uses Firebase to handle user accounts and stores save data for level highscores to the device it's played on. With the technologies we are using it would be possible to expand online functionalities by instead saving highscores to the cloud and adding an online leaderboard between users."
@@ -22,6 +22,7 @@ end
 # Associate tags with Mood Hops
 mood_hops.tags = [ react_native_tag, mobile_tag, game_development_tag ] if mood_hops.tags.empty?
 
+# Create Discord Chatbot
 discord_chatbot = Project.find_or_create_by!(name: "Discord Chatbot") do |project|
   project.thumbnail_desc = "A Local AI Powered Chatbot - Uses Discord API to allow AI to communicate with users."
   project.desc = "This program demonstrates the limitless possibilities integrating APIs create. Using the LM Studio sdk to send commands from a codebase to a locally run LLM alongside discord.js, which integrates with the Discord API, has allowed me to create an AI agent which can communicate with Discord users. Using the power of an LLM allows one to create a chatbot with its own personality and goals to bring some fun to a Discord server. The chatbot also has a growing list of commands which can be run by Discord users to gain information from other APIs or generate embedded and interactive responses."
@@ -33,6 +34,8 @@ discord_chatbot = Project.find_or_create_by!(name: "Discord Chatbot") do |projec
   project.is_featured = true
 end
 
+# Associate tags with Discord Chatbot
 discord_chatbot.tags = [ ai_tag, discord_tag ] if discord_chatbot.tags.empty?
 
+# Console output
 puts "Seeded #{Project.count} projects and #{Tag.count} tags"
