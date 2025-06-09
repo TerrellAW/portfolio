@@ -6,7 +6,7 @@ react_native_tag = Tag.find_or_create_by!(name: "React Native")
 game_development_tag = Tag.find_or_create_by!(name: "Game Development")
 mobile_tag = Tag.find_or_create_by!(name: "Mobile")
 ai_tag = Tag.find_or_create_by!(name: "AI")
-discord_tag = Tag.find_or_create_by!(name: "Discord API")
+discord_api_tag = Tag.find_or_create_by!(name: "Discord API")
 
 # Create Mood Hops
 mood_hops = Project.find_or_create_by!(name: "Mood Hops") do |project|
@@ -16,7 +16,6 @@ mood_hops = Project.find_or_create_by!(name: "Mood Hops") do |project|
   project.img_2_desc = "Select a Level"
   project.img_3_desc = "and Play!"
   project.color = "#ec4899"
-  project.is_featured = true
 end
 
 # Associate tags with Mood Hops
@@ -31,11 +30,25 @@ discord_chatbot = Project.find_or_create_by!(name: "Discord Chatbot") do |projec
   project.img_2_desc = "Its status is logged in the console."
   project.img_3_desc = "Can integrate with MMO game APIs."
   project.color = "#FF4B33"
-  project.is_featured = true
 end
 
 # Associate tags with Discord Chatbot
-discord_chatbot.tags = [ ai_tag, discord_tag ] if discord_chatbot.tags.empty?
+discord_chatbot.tags = [ ai_tag, discord_api_tag ] if discord_chatbot.tags.empty?
+
+# Create Allergy Free Recipes
+allergy_free_recipes = Project.find_or_create_by!(name: "Allergy Free Recipes") do |project|
+  project.thumbnail_desc = "A web app that allows users to find allergy free recipes using a search and filtering engine."
+  project.desc = "Using the Next.js technology stack, I built this web app around a search funtion with additional filtration capabilities to filter out allergens for users looking for recipes. The search function will filter for recipes based on the user's search terms, and hide any recipes that contain the ingredients the user is allergic to."
+  project.link = "https://allergy-free-recipes.vercel.app/"
+  project.github_link = "https://github.com/TerrellAW/Allergy-Free-Recipes"
+  project.img_1_desc = "Search for Recipes!"
+  project.img_2_desc = "Log in with Google!"
+  project.img_3_desc = "Add your own recipes!"
+  project.color = "#4766CD"
+end
+
+# Associate tags with Allergy Free Recipes
+allergy_free_recipes.tags = [ react_native_tag, game_development_tag, mobile_tag ] if allergy_free_recipes.tags.empty?
 
 # Console output
 puts "Seeded #{Project.count} projects and #{Tag.count} tags"
