@@ -15,7 +15,7 @@ namespace :db do
     # Generate projects
     puts "# Create projects"
     Project.all.each do |project|
-      project_var = project.name.downcase.gsub(/[^a-z0-9]/, '_').gsub(/_+/, '_')
+      project_var = project.name.downcase.gsub(/[^a-z0-9]/, "_").gsub(/_+/, "_")
 
       puts "#{project_var} = Project.find_or_create_by!(name: \"#{project.name}\") do |project|"
       puts "  project.thumbnail_desc = \"#{project.thumbnail_desc.gsub('\\', '\\\\').gsub('"', '\\"')}\"" if project.thumbnail_desc

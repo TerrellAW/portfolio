@@ -8,7 +8,7 @@ class Project < ApplicationRecord
     validates :img_2_desc, presence: true # Text under second image
     validates :img_3_desc, presence: true # Text under third image
     validates :color, format: { with: /\A#[0-9A-Fa-f]{6}\z/, message: "must be a valid hex color (e.g., #22d3ee)" }, allow_blank: true # Project color scheme
-    validates :is_featured, inclusion: [true, false] # Boolean to determine featured status
+    validates :is_featured, inclusion: [ true, false ] # Boolean to determine featured status
     has_and_belongs_to_many :tags # Tags for project cards
 
     after_create :create_image_folders
