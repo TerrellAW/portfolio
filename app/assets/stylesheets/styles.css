@@ -124,6 +124,15 @@ a {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+.button-project {
+    background-color: var(--project-color);
+}
+
+.button-project:hover {
+    background-color: white;
+    color: black;
+}
+
 /* Projects section */
 .projects-section {
     padding: 64px 0;
@@ -527,4 +536,5 @@ a {
     align-items: center;
     justify-content: center;
     padding: 16px;
+    gap: 10px;
 }
