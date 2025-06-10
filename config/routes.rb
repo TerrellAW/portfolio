@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "projects#index" # Landing page for projects
-  get 'projects/list', to: 'projects#list', as: :project_list # Page for listing all projects
+  get "projects/list", to: "projects#list", as: :project_list # Page for listing all projects
   resources :projects # CRUD for projects
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
