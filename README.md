@@ -47,7 +47,9 @@ ssh-keygen -t ed25519 -C "your-email@example.com"
 # Display your public key
 cat ~/.ssh/id_ed25519.pub
 ```
-Copy this key and add it to your GitHub account under Settings > SSH and GPG keys.
+Copy this key and add it to your GitHub repository under Settings > Deploy keys.
+
+Do not check box for Readonly deployments.
 
 ### 3. Test GitHub Connection
 ```bash
