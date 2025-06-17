@@ -9,14 +9,18 @@ cd /home/ubuntu/portfolio || exit 1
 # Pull latest changes from remote repository
 git pull origin main
 
-# Only update gems if Gemfile changed
-if [ Gemfile -nt Gemfile.lock ]; then
-    bundle install --deployment
-fi
+# Run docker instance
+docker run -it -v $(pwd):/app -p 3000:3000 -w /app ruby:3.4.3 bash -c "
 
-# Run database migrations
-rails db:migrate
-rails db:seed
+        # Install and update dependencies
+        gem install bundler
+        bundle install
 
-# Start the Rails server
-rails server -b 0.0.0.0 -p 3000 -e production
+        # Run database setup
+        rails db:create
+        rails db:migrate
+        rails db:seed
+
+        # Start the Rails server
+        rails server -b 0.0.0.0 -p 3000 -e production
+"
