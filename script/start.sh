@@ -6,6 +6,10 @@ sudo apt update && sudo apt upgrade -y
 # Enter the directory
 cd /home/ubuntu/portfolio || exit 1
 
+# Run ssh agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
 # Pull latest changes from remote repository
 git pull origin main
 
