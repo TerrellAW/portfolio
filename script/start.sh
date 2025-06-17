@@ -10,7 +10,9 @@ cd /home/ubuntu/portfolio || exit 1
 git pull origin main
 
 # Run docker instance
-docker run -it -v $(pwd):/app -p 3000:3000 -w /app ruby:3.4.3 bash -c "
+docker run -it -v $(pwd):/app -p 3000:3000 -w /app \
+    -e SECRET_KEY_BASE=$(openssl rand -hex 64) \
+    ruby:3.4.3 bash -c "
 
         # Install and update dependencies
         gem install bundler
