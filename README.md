@@ -49,7 +49,7 @@ cat ~/.ssh/id_ed25519.pub
 ```
 Copy this key and add it to your GitHub repository under Settings > Deploy keys.
 
-Do not check box for Readonly deployments.
+Do not allow Write Access for Read-only deployments.
 
 ### 3. Test GitHub Connection
 ```bash
