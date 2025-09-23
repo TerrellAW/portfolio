@@ -13,20 +13,28 @@ ssh-add ~/.ssh/id_ed25519
 # Pull latest changes from remote repository
 git pull origin main
 
+# Stop and remove existing container if it exists
+docker stop portfolio-app 2>/dev/null || true
+docker rm portfolio-app 2>/dev/null || true
+
 # Run docker instance
-docker run -it -v $(pwd):/app -p 3000:3000 -w /app \
+docker run -d \
+    --name portfolio-app \
+    --restart unless-stopped \
+    -v $(pwd):/app \
+    -p 3000:3000 \
     -e SECRET_KEY_BASE=$(openssl rand -hex 64) \
     ruby:3.4.3 bash -c "
-
         # Install and update dependencies
         gem install bundler
         bundle install
-
         # Run database setup
         rails db:create
         rails db:migrate
         rails db:seed
-
         # Start the Rails server
         rails server -b 0.0.0.0 -p 3000 -e production
-"
+    "
+
+# Show container status
+docker ps | grep portfolio-app
