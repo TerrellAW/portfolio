@@ -4,7 +4,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # Enter the directory
-cd /home/ubuntu/portfolio || exit 1
+cd ~/portfolio || exit 1
 
 # Run ssh agent
 eval "$(ssh-agent -s)"
