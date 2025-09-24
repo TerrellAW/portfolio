@@ -18,7 +18,7 @@ docker stop portfolio-app 2>/dev/null || true
 docker rm portfolio-app 2>/dev/null || true
 
 # Run docker instance
-docker run -it \
+docker run -d \
     --name portfolio-app \
     --restart unless-stopped \
     -v $(pwd):/app \
