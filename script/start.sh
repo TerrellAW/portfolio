@@ -23,7 +23,6 @@ docker run -d \
     --restart unless-stopped \
     -v $(pwd):/app \
     -p 3000:3000 \
-    -e SECRET_KEY_BASE=$(openssl rand -hex 64) \
     ruby:3.4.3 bash -c "
         # Install and update dependencies
         gem install bundler
