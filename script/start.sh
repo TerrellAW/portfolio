@@ -32,8 +32,8 @@ docker run -d \
         rails db:migrate
         rails db:seed
         # Start the Rails server
-        rails server -b 0.0.0.0 -p 3000 -e production
+        rails server -b 0.0.0.0 -e production
     "
 
 # Show container status
-docker ps | grep portfolio-app
+docker ps
