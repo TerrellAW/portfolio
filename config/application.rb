@@ -11,6 +11,9 @@ module Portfolio
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
+    config.force_ssl = true
+    Rails.application.config.server = nil
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
