@@ -18,22 +18,24 @@ docker stop portfolio-app 2>/dev/null || true
 docker rm portfolio-app 2>/dev/null || true
 
 # Run docker instance
-docker run -it \
+docker run -d \
     --name portfolio-app \
     --restart unless-stopped \
     -v $(pwd):/app \
     -p 3000:3000 \
-    ruby:3.4.3 bash -c "
-        # Install and update dependencies
-        gem install bundler
-        bundle install
-        # Run database setup
-        rails db:create
-        rails db:migrate
-        rails db:seed
-        # Start the Rails server
-        rails server -b 0.0.0.0 -e production
-    "
+    -w /app \
+    ruby:3.4.3
+
+# Install and update dependencies
+gem install bundler
+bundle install
+# Run database setup
+rails db:create RAILS_ENV=production
+rails db:migrate RAILS_ENV=production
+rails db:seed RAILS_ENV=production
+rails assets:precompile RAILS_ENV=production
+# Start the Rails server
+rails server -b 0.0.0.0 -p 3000 -e production
 
 # Show container status
 docker ps
