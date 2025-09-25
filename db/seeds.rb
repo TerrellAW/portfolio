@@ -7,6 +7,9 @@ game_development_tag = Tag.find_or_create_by!(name: "Game Development")
 mobile_tag = Tag.find_or_create_by!(name: "Mobile")
 ai_tag = Tag.find_or_create_by!(name: "AI")
 discord_api_tag = Tag.find_or_create_by!(name: "Discord API")
+react_tag = Tag.find_or_create_by!(name: "React")
+nextjs_tag = Tag.find_or_create_by!(name: "Next.js")
+web_dev_tag = Tag.find_or_create_by!(name: "Web Development")
 
 # Create Mood Hops
 mood_hops = Project.find_or_create_by!(name: "Mood Hops") do |project|
@@ -48,7 +51,7 @@ allergy_free_recipes = Project.find_or_create_by!(name: "Allergy Free Recipes") 
 end
 
 # Associate tags with Allergy Free Recipes
-allergy_free_recipes.tags = [ react_native_tag, game_development_tag, mobile_tag ] if allergy_free_recipes.tags.empty?
+allergy_free_recipes.tags = [ react_tag, nextjs_tag, wev_dev_tag ] if allergy_free_recipes.tags.empty?
 
 # Console output
 puts "Seeded #{Project.count} projects and #{Tag.count} tags"
