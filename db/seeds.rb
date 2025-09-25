@@ -10,6 +10,7 @@ discord_api_tag = Tag.find_or_create_by!(name: "Discord API")
 react_tag = Tag.find_or_create_by!(name: "React")
 nextjs_tag = Tag.find_or_create_by!(name: "Next.js")
 web_dev_tag = Tag.find_or_create_by!(name: "Web Development")
+monogame_tag = Tag.find_or_create_by!(name: "MonoGame")
 
 # Create Mood Hops
 mood_hops = Project.find_or_create_by!(name: "Mood Hops") do |project|
@@ -40,7 +41,7 @@ discord_chatbot.tags = [ ai_tag, discord_api_tag ] if discord_chatbot.tags.empty
 
 # Create Allergy Free Recipes
 allergy_free_recipes = Project.find_or_create_by!(name: "Allergy Free Recipes") do |project|
-  project.thumbnail_desc = "A web app that allows users to find allergy free recipes using a search and filtering engine."
+  project.thumbnail_desc = "A web app for searching and sharing recipes - Uses a custom search and filtering engine to allow users to find allergy free recipes."
   project.desc = "Using the Next.js technology stack, I built this web app around a search funtion with additional filtration capabilities to filter out allergens for users looking for recipes. The search function will filter for recipes based on the user's search terms, and hide any recipes that contain the ingredients the user is allergic to."
   project.link = "https://allergy-free-recipes.vercel.app/"
   project.github_link = "https://github.com/TerrellAW/Allergy-Free-Recipes"
@@ -52,6 +53,20 @@ end
 
 # Associate tags with Allergy Free Recipes
 allergy_free_recipes.tags = [ react_tag, nextjs_tag, wev_dev_tag ] if allergy_free_recipes.tags.empty?
+
+# Create C# Loving Bones PONG
+pong_game = Project.find_or_create_by!(name: "C# Loving Bones PONG") do |project|
+  project.thumbnail_desc = "A PONG game with a skeletal aesthetic - Uses MonoGame and C# to recreate a classic game for learning purposes."
+  project.desc = "I built this game using nothing but the MonoGame framework to learn how videogames work. This game can be improved, but it is a fully functional videogame with a relatively custom game engine, since I didn't use a pre-made one. I learned alot about how games work and this not only got my foot in the door for game development, but also made me a better programmer."
+  project.github_link = "https://github.com/TerrellAW/CSharp_Loving_Bones_PONG"
+  project.img_1_desc = "Start the game!"
+  project.img_2_desc = "Play against a friend!"
+  project.img_3_desc = "Win or lose!"
+  project.color = "#FFFFFF"
+end
+
+# Associate tags with C# Loving Bones PONG
+pong_game.tags = [ game_development_tag, monogame_tag ] if pong_game.tags.empty?
 
 # Console output
 puts "Seeded #{Project.count} projects and #{Tag.count} tags"
