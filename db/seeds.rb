@@ -20,6 +20,7 @@ mood_hops = Project.find_or_create_by!(name: "Mood Hops") do |project|
   project.img_2_desc = "Select a Level"
   project.img_3_desc = "and Play!"
   project.color = "#ec4899"
+  project.is_featured = true
 end
 
 # Associate tags with Mood Hops
@@ -34,6 +35,7 @@ discord_chatbot = Project.find_or_create_by!(name: "Discord Chatbot") do |projec
   project.img_2_desc = "Its status is logged in the console."
   project.img_3_desc = "Can integrate with MMO game APIs."
   project.color = "#FF4B33"
+  project.is_featured = true
 end
 
 # Associate tags with Discord Chatbot
@@ -63,6 +65,7 @@ pong_game = Project.find_or_create_by!(name: "C# Loving Bones PONG") do |project
   project.img_2_desc = "Play against a friend!"
   project.img_3_desc = "Win or lose!"
   project.color = "#FFFFFF"
+  project.is_featured = true
 end
 
 # Associate tags with C# Loving Bones PONG
