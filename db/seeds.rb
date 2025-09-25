@@ -24,7 +24,7 @@ mood_hops.tags = [ react_native_tag, mobile_tag, game_development_tag ] if mood_
 # Create Discord Chatbot
 discord_chatbot = Project.find_or_create_by!(name: "Discord Chatbot") do |project|
   project.thumbnail_desc = "A Local AI Powered Chatbot - Uses Discord API to allow AI to communicate with users."
-  project.desc = "This program demonstrates the limitless possibilities integrating APIs create. Using the LM Studio sdk to send commands from a codebase to a locally run LLM alongside discord.js, which integrates with the Discord API, has allowed me to create an AI agent which can communicate with Discord users. Using the power of an LLM allows one to create a chatbot with its own personality and goals to bring some fun to a Discord server. The chatbot also has a growing list of commands which can be run by Discord users to gain information from other APIs or generate embedded and interactive responses."
+  project.desc = "This program demonstrates the limitless possibilities integrating APIs create. Using the LM Studio SDK to send commands from a codebase to a locally run LLM alongside discord.js, which integrates with the Discord API, has allowed me to create an AI agent which can communicate with Discord users. Using the power of an LLM allows one to create a chatbot with its own personality and goals to bring some fun to a Discord server. The chatbot also has a growing list of commands which can be run by Discord users to gain information from other APIs or generate embedded and interactive responses."
   project.github_link = "https://github.com/TerrellAW/Discord-Chatbot"
   project.img_1_desc = "Bored Fish responds to messages!"
   project.img_2_desc = "Its status is logged in the console."
